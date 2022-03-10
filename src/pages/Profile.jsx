@@ -33,13 +33,13 @@ class Profile extends React.Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        <p>Profile</p>
         {loading ? (
           <Loading />
         ) : (
           <div>
             <div>
               <img
+                className="image"
                 data-testid="profile-image"
                 src={ image }
                 alt={ `Imagem do usuário: ${name}` }
@@ -48,11 +48,11 @@ class Profile extends React.Component {
               <p>{email}</p>
               <p>{description}</p>
             </div>
-            <div>
-              <Link to="/profile/edit">Editar perfil</Link>
-            </div>
           </div>
         )}
+        <div>
+          <Link to="/profile/edit">Editar perfil</Link>
+        </div>
       </div>
     );
   }

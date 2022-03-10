@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../component/Loading';
 
@@ -10,7 +10,6 @@ class Login extends React.Component {
       isDisabled: true,
       login: '',
       loading: false,
-      isSaved: false,
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,9 +24,11 @@ class Login extends React.Component {
 
   async handleSubmit() {
     const { login } = this.state;
+    const { history: { push } } = this.props;
     this.setState({ loading: true });
     await createUser({ name: login });
-    this.setState({ loading: false, isSaved: true });
+    this.setState({ loading: false });
+    push('/search');
   }
 
   validate() {
@@ -46,11 +47,10 @@ class Login extends React.Component {
   }
 
   render() {
-    const { login, isDisabled, loading, isSaved } = this.state;
+    const { login, isDisabled, loading } = this.state;
 
     return (
       <div data-testid="page-login">
-        {isSaved && <Redirect to="/search" />}
         {loading
           ? <Loading />
           : (
@@ -77,5 +77,11 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default Login;
