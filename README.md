@@ -1,5 +1,5 @@
 <h1>Sobre</h1>
-<p>Primeiro projeto do módulo 2 - Front-end, da <a href="https://betrybe.com" target="_blank">Trybe!</a></p>
+<p>Terceiro projeto do módulo 2 - Front-end, da <a href="https://betrybe.com" target="_blank">Trybe!</a></p>
 <p>Nesse projeto aprendemos o conceito de Single Page Application - SPA.</p> 
 <p>A proposta foi criar uma aplicação em que era possível buscar pelos álbuns de interesse, adicionar as músicas em uma lista de favoritos, bem como visualizar e editar o seu perfil. Tudo isso criando rotas com o React Router.</p>
 
